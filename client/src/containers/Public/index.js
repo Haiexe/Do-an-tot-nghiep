@@ -7,6 +7,7 @@ export { default as RentalRoom } from './rentalroom';
 export { default as RentalSpace } from './rentalspace';
 export { default as RentalApartment } from './rentalapartment';
 export { default as HomePage } from './homepage';
+export { default as Search } from './search';
 
 
 

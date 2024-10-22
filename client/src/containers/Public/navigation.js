@@ -2,16 +2,19 @@ import React from "react";
 // import {useEffect, useState} from "react";
 import { NavLink } from "react-router-dom";
 // import { apiGetCategory } from "../../services/category";
-import { fomatVietnameseToString } from "../../utils/constant";
+import { fomatVietnameseToString } from "../../utils/common/fomatVietnameseToString";
 
 const nav = [
-  {value:"Cho thuê phòng trọ", code:"cho-thue-phong-tro"}, 
-  {value:"Nhà cho thuê", code:"nha-cho-thue"},
-  {value:"Cho thuê căn hộ", code:"cho-thue-can-ho"}, 
-  {value:"Cho thuê mặt bằng", code:"cho-thue-mat-bang"},  ]
+  { value: "Cho thuê phòng trọ", code: "cho-thue-phong-tro" },
+  { value: "Nhà cho thuê", code: "nha-cho-thue" },
+  { value: "Cho thuê căn hộ", code: "cho-thue-can-ho" },
+  { value: "Cho thuê mặt bằng", code: "cho-thue-mat-bang" },
+];
 
-const notActive = 'hover:bg-secondary2 h-full flex items-center py-2 px-4 bg-secondary1'
-const active = 'hover:bg-secondary2 h-full flex items-center bg-secondary2 py-2 px-4'
+const notActive =
+  "hover:bg-secondary2 h-full flex items-center py-2 px-4 bg-secondary1";
+const active =
+  "hover:bg-secondary2 h-full flex items-center bg-secondary2 py-2 px-4";
 
 const Navigation = () => {
   // const [categories, setCategories] = useState([])
@@ -27,15 +30,15 @@ const Navigation = () => {
   // },[])
 
   return (
-      <div className="w-screen bg-secondary1 text-white h-[40px] flex justify-center items-center">
-        <div className="w-1100 flex h-full items-center text-sm font-medium ">
-          <NavLink 
-                  to= {`/`} 
-                  className={({isActive}) => isActive ? active : notActive}
-                >
-                  Trang chủ
-                </NavLink>
-          {/* {categories?.length > 0 && categories.map(item => {
+    <div className="w-screen bg-secondary1 text-white h-[40px] flex justify-center items-center">
+      <div className="w-3/5 flex h-full items-center text-sm font-medium ">
+        <NavLink
+          to={`/`}
+          className={({ isActive }) => (isActive ? active : notActive)}
+        >
+          Trang chủ
+        </NavLink>
+        {/* {categories?.length > 0 && categories.map(item => {
             return (
               <div key= {item.code} className="h-full flex justify-center items-center"> 
                 <NavLink 
@@ -47,21 +50,25 @@ const Navigation = () => {
               </div>
             )
           })} */}
-          {nav?.length > 0 && nav.map((item, index) => {
+        {nav?.length > 0 &&
+          nav.map((item, index) => {
             return (
-              <div key= {index} className="h-full flex justify-center items-center"> 
-                <NavLink 
-                  to= {`${fomatVietnameseToString(item.value)}`} 
-                  className={({isActive}) => isActive ? active : notActive}
+              <div
+                key={index}
+                className="h-full flex justify-center items-center"
+              >
+                <NavLink
+                  to={`${fomatVietnameseToString(item.value)}`}
+                  className={({ isActive }) => (isActive ? active : notActive)}
                 >
-                  {(item.value)}
+                  {item.value}
                 </NavLink>
               </div>
-            )
+            );
           })}
-        </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default Navigation;

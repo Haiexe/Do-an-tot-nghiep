@@ -27,7 +27,7 @@ const Login = () => {
     isLoggedIn && navigate("/");
   }, [isLoggedIn, navigate]);
 
-  useEffect (() => {
+  useEffect(() => {
     msg && Swal.fire('Oops !', msg, 'error')
   }, [msg, update])
 
